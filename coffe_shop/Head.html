@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Fake Spot</title>
+<title>Coffe Shop</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
@@ -11,24 +11,17 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script type="text/javascript" src="jquery-1.7.1.min.js" ></script>
-<script type="text/javascript" src="jquery.autocomplete.js"></script>
-<link   rel="stylesheet" href="jquery.autocomplete.css"  />
-
 <script type="text/javascript">
     function Registration(){
         document.registration.action="Registration";
         document.registration.method="post"
         document.registration.submit();
     }
-
     function signup(){
         document.login.action="Registration";
         document.login.method="get"
         document.login.submit();
     }
-
     function Back(){
         document.registration.action="LoginServlet";
         document.registration.method="get"
@@ -38,16 +31,6 @@
         document.login.action="LoginServlet";
         document.login.method="post"
         document.login.submit();
-    }
-</script>
-<script type="text/javascript">
-    function subToHX(i){
-        document.getElementById(i).action="NewsContent";
-        document.getElementById(i).submit();
-    }
-    function readlater(i){
-        document.getElementById(i).action="History";
-        document.getElementById(i).submit();
     }
 </script>
 </head>
