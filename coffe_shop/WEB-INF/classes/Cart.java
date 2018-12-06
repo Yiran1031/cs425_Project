@@ -86,13 +86,14 @@ public class Cart extends HttpServlet {
 			}
 
 			if (utility.findCustomer(customerid) != null){
-				pw.print("<form name ='Cart' action='#' method='post'>");
+				pw.print("<form name ='Cart' action='CheckOut' method='post'>");
 				pw.print("<input type='hidden' name='totalprice' value='"+totalPrice+"'>");	
 				pw.print("<input type='hidden' name='earnedpoint' value='"+(i-1)+"'>");	
 				pw.print("<tr><th></th><th>Total</th><th>"+totalPrice+"</th>");
 				pw.print("<tr><th></th><th>Earned Point:</th><th>"+(i-1)+"</th>");
 				Customer customer = utility.findCustomer(customerid);
 				pw.print("<tr><th></th><th>Customer id:</th><th>"+customer.getCustomerId()+"</th>");
+				pw.print("<input type='hidden' name='customerid' value='"+customer.getCustomerId()+"'>");		
 				pw.print("<tr><th></th><th>Customer name:</th><th>"+customer.getFirstname()+"</th>");
 				pw.print("<tr><td></td><td></td><td><input type='submit' name='CheckOut' value='CheckOut' class='btnbuy' /></td>");
 				pw.print("</table></form>");

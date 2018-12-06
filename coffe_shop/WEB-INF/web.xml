@@ -24,25 +24,6 @@
         <url-pattern>/Home</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>ManageProduct</servlet-name>
-        <servlet-class>ManageProduct</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ManageProduct</servlet-name>
-        <url-pattern>/ManageProduct</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Test</servlet-name>
-        <servlet-class>Test</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Test</servlet-name>
-        <url-pattern>/Test</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
@@ -64,13 +45,13 @@
         <url-pattern>/Registration</url-pattern>
     </servlet-mapping>
         <servlet>
-        <servlet-name>NewsContent</servlet-name>
-        <servlet-class>NewsContent</servlet-class>
+        <servlet-name>CreateCustomer</servlet-name>
+        <servlet-class>CreateCustomer</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>NewsContent</servlet-name>
-        <url-pattern>/NewsContent</url-pattern>
+        <servlet-name>CreateCustomer</servlet-name>
+        <url-pattern>/CreateCustomer</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>Review</servlet-name>

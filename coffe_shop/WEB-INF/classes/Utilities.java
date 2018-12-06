@@ -161,4 +161,65 @@ public class Utilities {
         customer = SqlDataStoreUtilities.search_customer(customerid);
         return customer;
     }
+    public int getTransactionSize(){
+        
+        HashMap<Integer, ArrayList<Transaction>> transactions = new HashMap<Integer, ArrayList<Transaction>>();
+        int size=0;
+        try
+        {
+            transactions =SqlDataStoreUtilities.selectAllTransaction();
+                
+        }
+        catch(Exception e)
+        {
+            
+        }
+        for(Map.Entry<Integer, ArrayList<Transaction>> entry : transactions.entrySet()){
+                size=entry.getKey();
+                System.out.print("Transaction size:"+size);
+        }
+            
+        return size;        
+    }
+
+    public void storeTransaction(int transactionid, String customerid, String productid,String date){
+        // HashMap<String, ArrayList<Transaction>> transactions = null;
+        //     // get the payment details file 
+        // try
+        // {
+        //     transactions=SqlDataStoreUtilities.selectOrder();
+        // }
+        // catch(Exception e)
+        // {
+        //     e.printStackTrace();
+        // }
+        // if(transactions==null)
+        // {
+        //     transactions = new HashMap<String, ArrayList<Transaction>>();
+        // }
+        //     // if there exist order id already add it into same list for order id or create a new record with order id
+            
+        // if(!transactions.containsKey(transactionid)){    
+        //     ArrayList<Transaction> arr = new ArrayList<Transaction>();
+        //     transactions.put(transactionid, arr);
+        // }
+        // ArrayList<Transaction> transactionList = transactions.get(transactionid);      
+        
+        // Transaction transaction = new Transaction(transactionid,customerid,productid);
+        // transactionList.add(transaction); 
+        try
+        {   
+            SqlDataStoreUtilities.insertTransaction(transactionid,customerid,productid,date);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }   
+    }
+
+
+    public void addPoint(String customer_id, int point)
+    {
+        SqlDataStoreUtilities.point_add(customer_id,point);
+    }
 }
