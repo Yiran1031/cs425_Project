@@ -17,9 +17,9 @@ public class SqlDataStoreUtilities
     	}
  	 }
 
-    public static void select_user()
+    public static HashMap<String,User> select_user()
   {
-    //HashMap<String,WearableTechnology> hm = new HashMap<String,WearableTechnology>();
+     HashMap<String,User> hm=new HashMap<String,User>();
     try
     {
         getConnection();
@@ -28,12 +28,36 @@ public class SqlDataStoreUtilities
         ResultSet  rs = stmt.executeQuery(selectUser);
         while(rs.next())
         {
-          System.out.println("username:"+rs.getString("firstname")+","+rs.getString("lastname"));
+          	User user = new User(rs.getString("user_id"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("password"),rs.getInt("priviledge"));
+        	hm.put(rs.getString("user_id"), user);
         }
     }
     catch(Exception e)
     {
     	e.printStackTrace();
     }
+    return hm;
   }
+
+  public static void insert_User(String user_id,String firstname,String lastname,int priviledge,String password)
+	{
+  	try
+  	{
+    	getConnection();
+    	String insertuser = "INSERT INTO usera(user_id,firstname,lastname,priviledge,password) "
+    	+ "VALUES (?,?,?,?,?);";  
+        
+    	PreparedStatement pst = conn.prepareStatement(insertuser);
+    	pst.setString(1,user_id);
+    	pst.setString(2,firstname);
+    	pst.setString(3,lastname);
+    	pst.setInt(4,priviledge);
+    	pst.setString(5,password);
+    	pst.execute();
+  	}
+  	catch(Exception e)
+  	{
+    	e.printStackTrace();
+  	} 
+	}
 }

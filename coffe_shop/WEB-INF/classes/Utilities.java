@@ -112,4 +112,9 @@ public class Utilities {
         }
         return result;
     }
+    public boolean isLoggedin(){
+        if (session.getAttribute("username")==null)
+            return false;
+        return true;
+    }
 }
