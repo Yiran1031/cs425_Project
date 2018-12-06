@@ -38,28 +38,27 @@ public class Utilities {
         //to print the right navigation in header of username cart and logout etc
         if (file == "Head.html") {
             result = result + "<div id = 'top'><div id ='user'><ul>";
-            if (session.getAttribute("username") != null) {
-                String username = session.getAttribute("username").toString();
+            if (session.getAttribute("user_id") != null) {
+                String user_id = session.getAttribute("user_id").toString();
                 String usertype = session.getAttribute("usertype").toString();
-                username = Character.toUpperCase(username.charAt(0)) + username.substring(1);
-                if(session.getAttribute("usertype").equals("customer"))
+                user_id = Character.toUpperCase(user_id.charAt(0)) + user_id.substring(1);
+                if(session.getAttribute("usertype").equals("0"))
                 {
                     result = result
                            +"<li><a href='Cart'><span class='glyphicon'>Cart(CartCount())</span></a></li>"
                            +"<li><a href='Logout'><span class='glyphicon'>Logout</span></a></li>"
-                           +"<li><a href='Account'><span class='glyphicon'>"+username+"</span></a></li>"
-                           +"<li><a href='Review'><span class='glyphicon'>ContactUs</span></a></li>"
+                           +"<li><a href='Account'><span class='glyphicon'> Hello Employee:"+user_id+"</span></a></li>"
                            +"</ul></div></div>";
-                }else if(session.getAttribute("usertype").equals("manager"))
+                }else if(session.getAttribute("usertype").equals("1"))
                 {
                     result = result
                            +"<li><a href='Logout'><span class='glyphicon'>Logout</span></a></li>"
-                           +"<li><a href='ViewReview'><span class='glyphicon'>Review</span></a></li>"
-                           +"<li><a href='DailySale'><span class='glyphicon'>DailySale</span></a></li>"
-                           +"<li><a href='ViewSale'><span class='glyphicon'>ViewDiscount</span></a></li>"
+                           +"<li><a href='Cart'><span class='glyphicon'>List"+listCount()+")</span></a></li>"
+                           +"<li><a href='Registration'><span class='glyphicon'>Create Employee</span></a></li>"
+                           +"<li><a href='#'><span class='glyphicon'>DailySale</span></a></li>"
                            +"<li><a href='UserList'><span class='glyphicon'>UserList</span></a></li>"
                            +"<li><a href='DataVisualization'><span class='glyphicon'>Chart</span></a></li>"
-                           +"<li><a href='Account'><span class='glyphicon'>"+username+"</span></a></li>"
+                           +"<li><a href='Account'><span class='glyphicon'>Hello Manager:"+user_id+"</span></a></li>"
                            +"<li><a href='ManageProduct'><span class='glyphicon'>ManageService</span></a></li>"
                            +"</ul></div></div>";
                 }
@@ -67,8 +66,7 @@ public class Utilities {
                 //         + "<li><a href='Account'><span class='glyphicon'>Account</span></a></li>"
                 //         + "<li><a href='LogOut'><span class='glyphicon'>Logout</span></a></li>";
             } else
-            result = result +" <li><a href='History'><span class='glyphicon'>History</span></a></li>"
-            +"<li><a href='LoginServlet'><span class='glyphicon'>Login</span></a></li>"
+            result = result +"<li><a href='LoginServlet'><span class='glyphicon'>Login</span></a></li>"
             +"</ul></div></div>";
             // result = result + "<li><a href='Cart'><span class='glyphicon'>Cart ("+CartCount() + ")</span></a></li></ul></div></div><div id='page'>";
             pw.print(result);
@@ -113,8 +111,54 @@ public class Utilities {
         return result;
     }
     public boolean isLoggedin(){
-        if (session.getAttribute("username")==null)
+        if (session.getAttribute("user_id")==null)
             return false;
         return true;
+    }
+    public void logout(){
+        session.removeAttribute("user_id");
+        session.removeAttribute("usertype");
+    }
+    public String getUserid(){
+        if (session.getAttribute("user_id")!=null)
+            return session.getAttribute("user_id").toString();
+        return null;
+    }
+
+    public void storeToList(String product_id){
+        if(!OrdersHashMap.orders.containsKey(getUserid())){  
+            ArrayList<String> arr = new ArrayList<String>();
+            OrdersHashMap.orders.put(getUserid(), arr);
+        }
+        ArrayList<String> orderItems = OrdersHashMap.orders.get(getUserid());
+        HashMap<String,Product> allProduct = new HashMap<String,Product> ();
+        Product product;
+        try{
+        allProduct = SqlDataStoreUtilities.getAllProduct();            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        product = allProduct.get(product_id);
+        //OrderItem orderitem = new OrderItem(product.getProduct_id());
+        orderItems.add(product.getProduct_id());   
+    }
+
+    public ArrayList<String> getCustomerOrders(){
+        ArrayList<String> order = new ArrayList<String>(); 
+        if(OrdersHashMap.orders.containsKey(getUserid()))
+            order= OrdersHashMap.orders.get(getUserid());
+        return order;
+    }
+    public int listCount(){
+        if(isLoggedin())
+        return getCustomerOrders().size();
+        return 0;
+    }
+    public Customer findCustomer(String customerid)
+    {
+        Customer customer = null;
+        customer = SqlDataStoreUtilities.search_customer(customerid);
+        return customer;
     }
 }

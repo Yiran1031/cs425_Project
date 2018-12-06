@@ -102,13 +102,13 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ServiceList</servlet-name>
-        <servlet-class>ServiceList</servlet-class>
+        <servlet-name>ProductList</servlet-name>
+        <servlet-class>ProductList</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>ServiceList</servlet-name>
-        <url-pattern>/ServiceList</url-pattern>
+        <servlet-name>ProductList</servlet-name>
+        <url-pattern>/ProductList</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>Logout</servlet-name>
@@ -194,13 +194,13 @@
         <url-pattern>/Account</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>RemoveItems</servlet-name>
-        <servlet-class>RemoveItems</servlet-class>
+        <servlet-name>RemoveCoffee</servlet-name>
+        <servlet-class>RemoveCoffee</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>RemoveItems</servlet-name>
-        <url-pattern>/RemoveItems</url-pattern>
+        <servlet-name>RemoveCoffee</servlet-name>
+        <url-pattern>/RemoveCoffee</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>AddProduct</servlet-name>
@@ -249,24 +249,15 @@
         <servlet-name>DailySale</servlet-name>
         <url-pattern>/DailySale</url-pattern>
     </servlet-mapping>
-                    <servlet>
-        <servlet-name>ViewSale</servlet-name>
-        <servlet-class>ViewSale</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ViewSale</servlet-name>
-        <url-pattern>/ViewSale</url-pattern>
-    </servlet-mapping>
 
     <servlet>
-        <servlet-name>ViewReview</servlet-name>
-        <servlet-class>ViewReview</servlet-class>
+        <servlet-name>PurchaseInfo</servlet-name>
+        <servlet-class>PurchaseInfo</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>ViewReview</servlet-name>
-        <url-pattern>/ViewReview</url-pattern>
+        <servlet-name>PurchaseInfo</servlet-name>
+        <url-pattern>/PurchaseInfo</url-pattern>
     </servlet-mapping>
 
 

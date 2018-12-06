@@ -56,4 +56,9 @@ public class User implements Serializable{
     public void setPriviledge(int priviledge) {
         this.priviledge = priviledge;
     }
+
+    public String getUsertype()
+    {
+        return String.valueOf(priviledge);
+    }
 }

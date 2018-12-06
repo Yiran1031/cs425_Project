@@ -38,6 +38,47 @@ public class SqlDataStoreUtilities
     }
     return hm;
   }
+  public static HashMap<String,Product> getAllProduct()
+  {
+  	HashMap<String,Product> hm = new HashMap<String,Product>();
+  	try{
+  		getConnection();
+  		Statement stmt = conn.createStatement();
+  		String selectAllProduct = "select * from product";
+  		ResultSet rs  = stmt.executeQuery(selectAllProduct);
+  		while(rs.next())
+  		{
+  			Product product = new Product(rs.getString("product_id"),rs.getString("name"),rs.getDouble("price"),rs.getInt("stock_num"),rs.getString("category_type"),rs.getString("image"));
+  			hm.put(rs.getString("product_id"),product);
+  			//System.out.println("product name:"+product.getName());
+  		}
+  	}catch(Exception e)
+  	{
+  		e.printStackTrace();
+  	}
+  	return hm;
+  }
+
+    public static HashMap<String,Customer> getAllCustomer()
+  {
+  	HashMap<String,Customer> hm = new HashMap<String,Customer>();
+  	try{
+  		getConnection();
+  		Statement stmt = conn.createStatement();
+  		String selectAllCustomer = "select * from customer";
+  		ResultSet rs  = stmt.executeQuery(selectAllCustomer);
+  		while(rs.next())
+  		{
+  			Customer customer = new Customer(rs.getString("customer_id"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("address"),rs.getInt("lifetime_earned_points"),rs.getInt("available_point"));
+  			hm.put(rs.getString("customer_id"),customer);
+  			//System.out.println("product name:"+product.getName());
+  		}
+  	}catch(Exception e)
+  	{
+  		e.printStackTrace();
+  	}
+  	return hm;
+  }
 
   public static void insert_User(String user_id,String firstname,String lastname,int priviledge,String password)
 	{
@@ -59,5 +100,28 @@ public class SqlDataStoreUtilities
   	{
     	e.printStackTrace();
   	} 
+	}
+
+	public static Customer search_customer(String customerid)
+	{
+  	try
+  	{
+    	getConnection();
+    	String insertuser = "SELECT * FROM customer WHERE customer_id=? ";  
+        Customer customer = null;
+    	PreparedStatement pst = conn.prepareStatement(insertuser);
+    	pst.setString(1,customerid);
+    	ResultSet rs = pst.executeQuery();
+    	if(rs.next())
+  		{
+ 			customer = new Customer(rs.getString("customer_id"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("address"),rs.getInt("lifetime_earned_points"),rs.getInt("available_point"));
+  		}
+  		return customer;
+  	}
+  	catch(Exception e)
+  	{
+    	e.printStackTrace();
+  	} 
+  	return null;
 	}
 }

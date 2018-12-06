@@ -5,10 +5,14 @@ body {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 12px;
 }
-h1,h2,h3 {
+h1,h2 {
 	margin: 0 !important;
 	font-weight: normal !important;
 	color: rgb(241, 241, 241) !important;
+}
+h3 {
+	margin: 0 !important;
+	font-weight: normal !important;
 }
 h1 {
 	font-size: 40px !important;
@@ -134,7 +138,7 @@ h1 {
 	color: rgb(241, 241, 241);
 }
 .home{
-	width: 1000px;
+	width: 800px;
 	min-height: 1000px;
 	margin: 0 auto;
 	padding: 30px 20px 0px 20px;
