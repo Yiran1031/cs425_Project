@@ -1,0 +1,484 @@
+body {
+	margin: 0px;
+	padding: 0;
+	background:  #353535 !important;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+h1,h2,h3 {
+	margin: 0 !important;
+	font-weight: normal !important;
+	color: rgb(241, 241, 241) !important;
+}
+h1 {
+	font-size: 40px !important;
+}
+#logo {
+	width: 1000px;
+	height: 80px;
+	margin: 0 auto;
+	padding: 30px 20px 0px 20px;
+}
+
+#logo a {
+	color: rgb(241, 241, 241);
+	text-decoration: none;
+}
+#logo a:hover{
+	text-decoration: none;
+}
+
+#user a {
+	color: #353535;
+	text-decoration: none;
+}
+#user a:hover{
+	text-decoration: none;
+	background: #a1a9b0;
+	color: rgb(241, 241, 241);
+}
+
+#header {
+	width: 1000px;
+	height: 60px;
+	margin: 0 auto;
+	padding: 0px;
+}
+
+#menu {
+	float: left;
+	height: 60px;
+}
+
+
+#menu ul {
+	margin: 0;
+	padding: 0px;
+	list-style: none;
+	line-height: normal;
+}
+
+/* Decoration of Top/Main Navigation Bar with List Tags (Menu Content)*/
+
+#menu li {
+	display: block;
+	float: left;
+}
+#user ul {
+	margin: 0;
+	padding: 0px;
+	list-style: none;
+	line-height: normal;
+}
+#user li
+{
+	display: block;
+	float: right;
+}
+#user{
+	margin: 0px;
+}
+/* Decoration of Top/Main Navigation Bar with Hyperlink Tags (Menu Content)*/
+
+#menu a {
+	display: block;
+	float: left;
+	height: 32px;
+	padding: 12px 20px 0px 20px;
+	letter-spacing: -1px;
+	text-decoration: none;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	color:rgb(241, 241, 241);
+}
+
+#user a {
+	display: block;
+	float: left;
+	height: 32px;
+	padding: 5px 20px 0px 20px;
+	letter-spacing: -1px;
+	text-decoration: none;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	color:#353535;
+}
+/* Decoration of Top/Main Navigation Bar with :hover Tags (Menu Content)*/
+
+#menu a:hover {
+	text-decoration: none;
+}
+
+.content {
+	width: 100%;
+	margin: 0 auto;
+	padding: 30px 20px 20px 20px;
+	background: linear-gradient(135deg, #f7adad, #7c2626);
+}
+.footer{
+	width: 100%;
+	height: 100px;
+	margin: 0 auto;
+	padding: 0;
+}
+.footer p {
+	margin: 0;
+	padding: 30px 0px 0px 0px;
+	text-align: center;
+	line-height: normal;
+	font-size: 15px;
+	color: rgb(241, 241, 241);
+}
+.news{
+	width: 1200px;
+	min-height: 1000px;
+	margin: 0 auto;
+	padding: 30px 20px 0px 20px;
+	background-color: rgb(241, 241, 241);
+	overflow: auto;
+}
+#user{
+	 width: 1000px;
+	 height: 30px;
+	 margin: 0 auto;
+	 padding: 0px 10px 0px 20px;
+	 background-color: rgb(241, 241, 241);
+ }
+#top
+{
+
+	width: 100%;
+	height: 30px;
+	margin: 0 auto;
+	padding: 0px 0px 0px 0px;
+	background-color: rgb(241, 241, 241);
+
+}
+
+.login {
+	width: 700px;
+	height: 700px;
+	margin: 0 auto;
+	padding: 30px 20px 0px 20px;
+}
+
+#bestseller {
+	width: 100%
+}
+
+/* Best Seller Products display Table Data Decoration*/
+
+#bestseller td {
+	padding-bottom: 20px;
+}
+
+table.gridtable {
+	font-family: verdana, arial, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+
+
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+
+
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+
+img {
+  height: auto;
+  max-width: 100%; }
+.single-blog-post {
+  position: relative;
+  z-index: 1; }
+  .single-blog-post .post-thumb a {
+    display: block; }
+  .single-blog-post .post-data {
+    padding: 30px 0; }
+    .single-blog-post .post-data .post-catagory {
+      font-size: 14px;
+      color: #ee002d;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: block; }
+    .single-blog-post .post-data .post-title {
+      display: block; }
+      .single-blog-post .post-data .post-title h6 {
+        -webkit-transition-duration: 500ms;
+        transition-duration: 500ms;
+        line-height: 1.9; }
+        .single-blog-post .post-data .post-title h6:hover, .single-blog-post .post-data .post-title h6:focus {
+          color: #ee002d; }
+    .single-blog-post .post-data .post-meta .post-date a {
+      display: block; }
+      .single-blog-post .post-data .post-meta .post-date a:hover, .single-blog-post .post-data .post-meta .post-date a:focus {
+        color: #ee002d; }
+  .single-blog-post.style-2 .post-data {
+    padding: 15px 0; }
+    .single-blog-post.style-2 .post-data .post-title h6 {
+      font-size: 14px; }
+    .single-blog-post.style-2 .post-data .post-meta .post-date a {
+      font-size: 12px; }
+  .single-blog-post.style-3 {
+    margin-bottom: 15px; }
+    .single-blog-post.style-3 .post-data {
+      padding: 15px 0; }
+      .single-blog-post.style-3 .post-data .post-title h6 {
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 30px; }
+  .single-blog-post.featured-post {
+    position: relative;
+    z-index: 1; }
+    .single-blog-post.featured-post .post-data {
+      padding: 30px 0; }
+      .single-blog-post.featured-post .post-data .post-title h6 {
+        font-size: 40px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        font-weight: 500; }
+        @media only screen and (max-width: 767px) {
+          .single-blog-post.featured-post .post-data .post-title h6 {
+            font-size: 24px; } }
+      .single-blog-post.featured-post .post-data .post-author {
+        margin-bottom: 15px;
+        display: block;
+        width: 100%; }
+        .single-blog-post.featured-post .post-data .post-author a {
+          display: inline-block;
+          color: #ee002d; }
+.single-blog-post.featured-post .post-data .post-excerp {
+        font-weight: 500;
+        margin-bottom: 40px;
+        display: block;
+        line-height: 2.1; }
+  .single-blog-post.small-featured-post {
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid #d0d5d8;
+    padding: 20px 0; }
+    .single-blog-post.small-featured-post .post-data {
+      padding: 0; }
+      .single-blog-post.small-featured-post .post-data .post-catagory {
+        margin-bottom: 10px;
+        line-height: 1; }
+      .single-blog-post.small-featured-post .post-data .post-title h6 {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        font-weight: 700; }
+      .single-blog-post.small-featured-post .post-data .post-date {
+        margin-bottom: 0;
+        line-height: 1; }
+       .linecontent{
+       	white-space: pre-line;
+       }
+#sidebar {
+	float: left;
+	width: 225px;
+	font-size: 12px;
+}
+
+/* Left Navigation Bar - Decoration for Unordered List */
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: normal;
+	border: none;
+}
+
+/* Left Navigation Bar - Decoration for List Items*/
+
+#sidebar li {
+	type : square;
+	margin-bottom: 20px;
+	padding: 10px 0px 10px 0px;
+	border-radius: 5px;
+	background: #353535;
+
+}
+
+/* Left Navigation Bar - Decoration for Consoles , Games , Tablets */
+
+#sidebar li ul {
+	margin: 0px 0px;
+	border: none;
+}
+
+/* Left Navigation Bar - Decoration for Various Product Lists */
+
+#sidebar li li {
+	margin: 0;
+	padding: 10px 0px;
+	border: none;
+	background: url(images/site/img06.jpg) repeat-x left top;
+
+}
+
+/* Left Navigation Bar - Decoration for List Bullets */
+
+#sidebar li li a {
+	padding: 0px 0px 0px 30px;
+	font-weight: normal;
+	border: none;
+	background: url(images/site/2.png) no-repeat 15px 4px;
+}
+
+#sidebar li li a.viewmore {
+	background: none;
+	float: right;
+	margin-right: 20px;
+}
+
+/* Left Navigation Bar - Decoration for Hyperlink hover Tags ( Colour Changes) */
+
+#sidebar li li a:hover {
+	color: #666666;
+}
+
+/* Left Navigation Bar - Decoration for Paragraph Tags */
+
+#sidebar p {
+	margin: 0;
+	padding: 0px 14px;
+	line-height: 200%;
+}
+
+/* Left Navigation Bar - Decoration for Heading Tags */
+
+#sidebar h2 {
+	height: 32px;
+	margin: 0 0 10px 0px;
+	padding: 8px 0 10px 20px;
+	background: url(images/site/1.png) repeat-x left bottom;
+	font-size: 24px;
+	font-weight: normal;
+	color: #000000;
+	font-size: 24px;
+}
+
+/* Left Navigation Bar - Decoration for Heading Tags */
+
+#sidebar h3 {
+	margin-top: 5px;
+	text-align: center;
+}
+
+/* Left Navigation Bar - Decoration for Hyperlink Tags */
+
+#sidebar a {
+	text-align: left;
+	text-decoration: none;
+	font-weight: bold;
+	color: #000000;
+}
+
+#shop_item {
+	border-radius: 5px;
+	border: 1px solid #000;
+	padding: 4px;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	
+}
+
+/*  Unordered List of Items in the Store Display */
+
+#shop_item ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border: none;
+	
+}
+
+/*  Unordered List of Items and List Tags in the Store Display */
+
+#shop_item ul li {
+	margin-bottom: 5px;
+	margin-top: 6px;
+}
+
+
+#shop_item #item img {
+	display: block;
+	width: 180px;
+	height: 160px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+/* Decoration for Display of Products in the Store  */
+
+#shop_item strong {
+	display: block;
+	text-align: center;
+	margin-bottom: 5px;
+	
+}
+
+/* Border Decoration for Display of Products in the Store  */
+
+#shop_item #item {
+	border: 1px solid #000;
+	
+}
+
+/* Heading Tag for Display of Products in the Store  */
+
+#shop_item h3 {
+	text-align: center;
+	font-size: 15px;
+	margin-bottom: 0;
+	
+}
+
+/* Button Decoration for Display of Products in the Store  */
+
+#shop_item button {
+	width: 100%;
+	margin-bottom: 6px;
+	overflow-x: scroll;
+	
+}
+
+.btnbuy {
+	-webkit-border-radius: 5;
+	-moz-border-radius: 5;
+	border-radius: 5px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 15px;
+	background: #3498db;
+	padding: 5px 10px 5px 10px;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
