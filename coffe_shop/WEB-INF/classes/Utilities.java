@@ -45,7 +45,7 @@ public class Utilities {
                 if(session.getAttribute("usertype").equals("0"))
                 {
                     result = result
-                           +"<li><a href='Cart'><span class='glyphicon'>Cart(CartCount())</span></a></li>"
+                           +"<li><a href='Cart'><span class='glyphicon'>List"+listCount()+")</span></a></li>"
                            +"<li><a href='Logout'><span class='glyphicon'>Logout</span></a></li>"
                            +"<li><a href='Account'><span class='glyphicon'> Hello Employee:"+user_id+"</span></a></li>"
                            +"</ul></div></div>";
@@ -55,11 +55,9 @@ public class Utilities {
                            +"<li><a href='Logout'><span class='glyphicon'>Logout</span></a></li>"
                            +"<li><a href='Cart'><span class='glyphicon'>List"+listCount()+")</span></a></li>"
                            +"<li><a href='Registration'><span class='glyphicon'>Create Employee</span></a></li>"
-                           +"<li><a href='#'><span class='glyphicon'>DailySale</span></a></li>"
-                           +"<li><a href='UserList'><span class='glyphicon'>UserList</span></a></li>"
-                           +"<li><a href='DataVisualization'><span class='glyphicon'>Chart</span></a></li>"
+                           +"<li><a href='DailySaleList'><span class='glyphicon'>DailySale</span></a></li>"
+                           +"<li><a href='InventoryList'><span class='glyphicon'>Inventory</span></a></li>"
                            +"<li><a href='Account'><span class='glyphicon'>Hello Manager:"+user_id+"</span></a></li>"
-                           +"<li><a href='ManageProduct'><span class='glyphicon'>ManageService</span></a></li>"
                            +"</ul></div></div>";
                 }
                 //         + "<li><a><span class='glyphicon'>Hello," + username +","+ usertype + "</span></a></li>"
@@ -221,5 +219,24 @@ public class Utilities {
     public void addPoint(String customer_id, int point)
     {
         SqlDataStoreUtilities.point_add(customer_id,point);
+    }
+
+    public boolean checkPoint(String customer_id)
+    {
+        int point = SqlDataStoreUtilities.getCurrentPoint(customer_id);
+        System.out.println("current point :" + point);
+        if(point>=25)
+            return true;
+        else
+            return false;
+    }
+
+    public void minusPoint(String customer_id)
+    {
+        SqlDataStoreUtilities.point_minus(customer_id,25);
+    }
+    public void storeMinus(String product_id)
+    {
+        SqlDataStoreUtilities.product_minus(product_id,1);
     }
 }

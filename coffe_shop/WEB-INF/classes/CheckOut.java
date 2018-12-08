@@ -50,7 +50,8 @@ public class CheckOut extends HttpServlet {
 
 		for (String oi : utility.getCustomerOrders())
 		{
-			utility.storeTransaction(orderId,customerid,oi,today);			
+			utility.storeTransaction(orderId,customerid,oi,today);	
+			utility.storeMinus(oi);		
 		}
 		utility.addPoint(customerid,Integer.parseInt(point));	
 		OrdersHashMap.orders.remove(utility.getUserid());		

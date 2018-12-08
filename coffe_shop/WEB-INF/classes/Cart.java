@@ -67,6 +67,7 @@ public class Cart extends HttpServlet {
 		{
 			pw.print("<table  class='gridtable'>");
 			int i = 1;
+			int point = 0;
 			double totalPrice = 0;
 			int product_total = 0;
 			for (String product_id : utility.getCustomerOrders()) 
@@ -87,10 +88,20 @@ public class Cart extends HttpServlet {
 
 			if (utility.findCustomer(customerid) != null){
 				pw.print("<form name ='Cart' action='CheckOut' method='post'>");
-				pw.print("<input type='hidden' name='totalprice' value='"+totalPrice+"'>");	
-				pw.print("<input type='hidden' name='earnedpoint' value='"+(i-1)+"'>");	
-				pw.print("<tr><th></th><th>Total</th><th>"+totalPrice+"</th>");
-				pw.print("<tr><th></th><th>Earned Point:</th><th>"+(i-1)+"</th>");
+				if(utility.checkPoint(customerid))
+				{
+					pw.print("<tr><th></th><th>The customer can get a free coffee:</th><th>"+product.getName()+"</th>");
+					pw.print("<input type='hidden' name='totalprice' value='"+(totalPrice-product.getPrice())+"'>");	
+					pw.print("<input type='hidden' name='earnedpoint' value='"+(int)(totalPrice-product.getPrice())+"'>");	
+					pw.print("<tr><th></th><th>Total</th><th><h4 style='color:red'>"+(totalPrice-product.getPrice())+"</h4></th>");
+					pw.print("<tr><th></th><th>Earned Point:</th><th>"+(int)(totalPrice-product.getPrice())+"</th>");
+					utility.minusPoint(customerid);
+				}else{
+					pw.print("<input type='hidden' name='totalprice' value='"+totalPrice+"'>");	
+					pw.print("<input type='hidden' name='earnedpoint' value='"+(int)totalPrice+"'>");	
+					pw.print("<tr><th></th><th>Total</th><th>"+totalPrice+"</th>");
+					pw.print("<tr><th></th><th>Earned Point:</th><th>"+(int)totalPrice+"</th>");
+				}
 				Customer customer = utility.findCustomer(customerid);
 				pw.print("<tr><th></th><th>Customer id:</th><th>"+customer.getCustomerId()+"</th>");
 				pw.print("<input type='hidden' name='customerid' value='"+customer.getCustomerId()+"'>");		
@@ -100,9 +111,9 @@ public class Cart extends HttpServlet {
 			}else{
 				pw.print("<form name ='Cart' action='Cart' method='get'>");
 				pw.print("<input type='hidden' name='totalprice' value='"+totalPrice+"'>");	
-				pw.print("<input type='hidden' name='earnedpoint' value='"+(i-1)+"'>");	
+				pw.print("<input type='hidden' name='earnedpoint' value='"+(int)totalPrice+"'>");	
 				pw.print("<tr><th></th><th>Total</th><th>"+totalPrice+"</th>");
-				pw.print("<tr><th></th><th>Earned Point:</th><th>"+(i-1)+"</th>");
+				pw.print("<tr><th></th><th>Earned Point:</th><th>"+(int)totalPrice+"</th>");
 				pw.print("<tr><th></th><th>Customer id:</th><th><input class='form-control required' type='text' placeholder='customer number' name='customerid' autofocus='autofocus' required/></th>");
 				pw.print("<tr><td></td><td></td><td><input type='submit' name='nextstep' value='nextstep' class='btnbuy' /></td>");
 				pw.print("</table></form>");

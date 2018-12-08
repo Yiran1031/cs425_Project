@@ -59,6 +59,28 @@ public class SqlDataStoreUtilities
   	return hm;
   }
 
+    public static HashMap<String,Product> getProductByType(String type)
+  {
+    HashMap<String,Product> hm = new HashMap<String,Product>();
+    try{
+      getConnection();
+      String selectAllProductByType = "select * from product WHERE category_type = CAST(? AS drink)";
+      PreparedStatement pst = conn.prepareStatement(selectAllProductByType);
+      pst.setString(1,type);
+      ResultSet rs = pst.executeQuery();
+      while(rs.next())
+      {
+        Product product = new Product(rs.getString("product_id"),rs.getString("name"),rs.getDouble("price"),rs.getInt("stock_num"),rs.getString("category_type"),rs.getString("image"));
+        hm.put(rs.getString("product_id"),product);
+        //System.out.println("product name:"+product.getName());
+      }
+    }catch(Exception e)
+    {
+      e.printStackTrace();
+    }
+    return hm;
+  }
+
     public static HashMap<String,Customer> getAllCustomer()
   {
   	HashMap<String,Customer> hm = new HashMap<String,Customer>();
@@ -253,8 +275,90 @@ public static void insertTransaction(int transactionid, String customerid, Strin
   } 
   }
 
-  // public static int getCurrentPoint()
-  // {
+    public static int getCurrentPoint(String customer_id)
+  {
+     int point = 0;
+    try
+    {
+        getConnection();
+        String poitn = "SELECT available_point FROM customer WHERE customer_id = ?";
+        PreparedStatement pst = conn.prepareStatement(poitn);
+        pst.setString(1,customer_id);
+        ResultSet rs = pst.executeQuery();
+        if(rs.next())
+        {
+          point = rs.getInt("available_point");
+        }
+        return point;
+    }
+    catch(Exception e)
+    {
+      e.printStackTrace();
+    }
+    return point;
+  }
+  public static void point_minus(String customer_id, int n)
+  {
+  try
+  {
+  
+    getConnection();
+    
+    String pointupdate = "UPDATE customer SET available_point = available_point - ? WHERE customer_id = ?";  
+      
+    PreparedStatement pst = conn.prepareStatement(pointupdate);
+    //set the parameter for each column and execute the prepared statement
+    pst.setInt(1,n);
+    pst.setString(2,customer_id);
+    pst.execute();
+  }
+  catch(Exception e)
+  {
+    e.printStackTrace();
+  } 
+  }
 
-  // }
+  public static void product_minus(String product_id, int n)
+  {
+  try
+  {
+  
+    getConnection();
+    
+    String productupdate = "UPDATE product SET stock_num = stock_num - ? WHERE product_id = ?";  
+      
+    PreparedStatement pst = conn.prepareStatement(productupdate);
+    //set the parameter for each column and execute the prepared statement
+    pst.setInt(1,n);
+    pst.setString(2,product_id);
+    pst.execute();
+  }
+  catch(Exception e)
+  {
+    e.printStackTrace();
+  } 
+  }
+
+
+    public static ArrayList<DailySale> getDailySale()
+  {
+    ArrayList<DailySale> arr = new ArrayList<DailySale>();
+    try
+    {
+        getConnection();
+        Statement stmt = conn.createStatement();
+        String dailysale = "SELECT product_id,name,price,date, count(product_id)as Sale  FROM transaction NATURAL JOIN product GROUP BY product_id,name,date,price ORDER BY product_id";
+        ResultSet  rs = stmt.executeQuery(dailysale);
+        while(rs.next())
+        {
+          DailySale ds = new DailySale(rs.getString("product_id"),rs.getString("name"),rs.getDouble("price"),rs.getString("date"),rs.getInt("sale"));
+          arr.add(ds);
+        }
+    }
+    catch(Exception e)
+    {
+      e.printStackTrace();
+    }
+    return arr;
+  }
 }

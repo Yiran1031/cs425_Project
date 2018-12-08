@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 @WebServlet("/ProductList")
 
 public class ProductList extends HttpServlet {
@@ -17,15 +17,36 @@ public class ProductList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
+  		String type = request.getParameter("type");
 		HashMap<String,Product> all_product = new HashMap<String,Product> ();
-	
+		HttpSession session = request.getSession(true);
 		try{
-		     all_product = SqlDataStoreUtilities.getAllProduct();
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
+  			if(type.equals("all"))
+  			{
+ 			
+		     	all_product = SqlDataStoreUtilities.getAllProduct();
+  			}else if(type.equals("Beverages"))
+  			{
+
+		     	all_product = SqlDataStoreUtilities.getProductByType("Beverages");
+  			}else if(type.equals("Donuts"))
+  			{
+		     	all_product = SqlDataStoreUtilities.getProductByType("Donuts");
+		
+  			}else if(type.equals("Bagels"))
+  			{
+
+		     	all_product = SqlDataStoreUtilities.getProductByType("Bagels");
+
+  			}else
+  			{
+		     	all_product = SqlDataStoreUtilities.getAllProduct();
+  			}
+  		}
+  		catch(Exception e)
+			{
+				e.printStackTrace();
+			}
 		// HashMap<String,Service> hm = new HashMap<String,Service>();
 		// for(Map.Entry<String,Service> entry : allservice.entrySet())
 		// {
@@ -52,6 +73,10 @@ public class ProductList extends HttpServlet {
 	 		pw.print("<h3>" + product.getName() + "</h3>");
 	 		pw.print("<strong>Price:$" + product.getPrice() + "</strong><ul>");
 	 		pw.print("<li id='item'><img src='images/"+ product.getImage() + "' alt='' /></li>");
+	 		if(session.getAttribute("usertype").equals("1"))
+	 		{
+	 	 		pw.print("<h3> Iventory:" + product.getStock_num() + "</h3>");
+	 		}
 	 		pw.print("<li><form method='post' action='Cart'>" +
 		 			"<input type='hidden' name='product_id' value='"+product.getProduct_id()+"'>"+
 		 			"<input type='hidden' name='price' value='"+product.getPrice()+"'>"+

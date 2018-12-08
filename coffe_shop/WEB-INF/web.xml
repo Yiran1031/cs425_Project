@@ -54,33 +54,15 @@
         <url-pattern>/CreateCustomer</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>Review</servlet-name>
-        <servlet-class>Review</servlet-class>
+        <servlet-name>DailySaleList</servlet-name>
+        <servlet-class>DailySaleList</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Review</servlet-name>
-        <url-pattern>/Review</url-pattern>
+        <servlet-name>DailySaleList</servlet-name>
+        <url-pattern>/DailySaleList</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>OrderItem</servlet-name>
-        <servlet-class>OrderItem</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>OrderItem</servlet-name>
-        <url-pattern>/OrderItem</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>NewsItem</servlet-name>
-        <servlet-class>NewsItem</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>NewsItem</servlet-name>
-        <url-pattern>/NewsItem</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>ProductList</servlet-name>
@@ -118,24 +100,7 @@
         <servlet-name>CheckOut</servlet-name>
         <url-pattern>/CheckOut</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Payment</servlet-name>
-        <servlet-class>Payment</servlet-class>
-    </servlet>
 
-    <servlet-mapping>
-        <servlet-name>Payment</servlet-name>
-        <url-pattern>/Payment</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>History</servlet-name>
-        <servlet-class>History</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>History</servlet-name>
-        <url-pattern>/History</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>DataVisualization</servlet-name>
@@ -146,34 +111,7 @@
         <servlet-name>DataVisualization</servlet-name>
         <url-pattern>/DataVisualization</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>UserList</servlet-name>
-        <servlet-class>UserList</servlet-class>
-    </servlet>
 
-    <servlet-mapping>
-        <servlet-name>UserList</servlet-name>
-        <url-pattern>/UserList</url-pattern>
-    </servlet-mapping>
-        <servlet>
-        <servlet-name>FakeBox</servlet-name>
-        <servlet-class>FakeBox</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>FakeBox</servlet-name>
-        <url-pattern>/FakeBox</url-pattern>
-    </servlet-mapping>
-        
-        <servlet>
-        <servlet-name>Account</servlet-name>
-        <servlet-class>Account</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Account</servlet-name>
-        <url-pattern>/Account</url-pattern>
-    </servlet-mapping>
     <servlet>
         <servlet-name>RemoveCoffee</servlet-name>
         <servlet-class>RemoveCoffee</servlet-class>
@@ -188,40 +126,7 @@
         <servlet-class>AddProduct</servlet-class>
     </servlet>
 
-    <servlet-mapping>
-        <servlet-name>AddProduct</servlet-name>
-        <url-pattern>/AddProduct</url-pattern>
-    </servlet-mapping>
-        <servlet>
-        <servlet-name>DeleteProduct</servlet-name>
-        <servlet-class>DeleteProduct</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>DeleteProduct</servlet-name>
-        <url-pattern>/DeleteProduct</url-pattern>
-    </servlet-mapping>
-
-        <servlet>
-        <servlet-name>UpdateProduct</servlet-name>
-        <servlet-class>UpdateProduct</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>UpdateProduct</servlet-name>
-        <url-pattern>/UpdateProduct</url-pattern>
-    </servlet-mapping>
-            <servlet>
-        <servlet-name>UpdateProduct2</servlet-name>
-        <servlet-class>UpdateProduct2</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>UpdateProduct2</servlet-name>
-        <url-pattern>/UpdateProduct2</url-pattern>
-    </servlet-mapping>
-
-                <servlet>
+    <servlet>
         <servlet-name>DailySale</servlet-name>
         <servlet-class>DailySale</servlet-class>
     </servlet>
@@ -230,17 +135,13 @@
         <servlet-name>DailySale</servlet-name>
         <url-pattern>/DailySale</url-pattern>
     </servlet-mapping>
-
     <servlet>
-        <servlet-name>PurchaseInfo</servlet-name>
-        <servlet-class>PurchaseInfo</servlet-class>
+        <servlet-name>InventoryList</servlet-name>
+        <servlet-class>InventoryList</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>PurchaseInfo</servlet-name>
-        <url-pattern>/PurchaseInfo</url-pattern>
+        <servlet-name>InventoryList</servlet-name>
+        <url-pattern>/InventoryList</url-pattern>
     </servlet-mapping>
-
-
-
 </web-app>
